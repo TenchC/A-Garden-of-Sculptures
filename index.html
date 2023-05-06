@@ -23,9 +23,13 @@
  <!-- Trying to run a script on button press to recompile -->
 <script>
     document.getElementById("Compile").addEventListener("click", () => {
-      //Tried adding in shader-park-core.js from the import link on line 42
-      //but for some reason that didn't pull properly, I got an error saying sculpt to minimal render was undefined
-      //even though it exists in the shader-park-core.js file thats local
+      /*
+      Main issue is here, I've got my compile button which I'm trying to use to recompile the shader code, basiclaly re running the
+      sculpt to minimal renderer function, but import{} cannot be used within a function, so I'm using import(). That doesn't
+      allow me to ping the server for shader park in the same way, so I took all the code from the import{} link on line 47
+      and created an internal js file called shader-park-core.js. However, when I import that, I get a console log error saying 
+      sculpt to minimal renderer isn't defined.
+      */
       import ("./shader-park-core.js");
       import ("./sketch.js");
       let canvas = document.querySelector('.my-canvas');
@@ -39,6 +43,7 @@
     
 <!--     This is what would run, reimporting and resculpting -->
     <script type="module">
+      //So I re added this code to make the visualization appear, but right now even though this visual is here there isn't any user input
       import {sculptToMinimalRenderer} from 'https://unpkg.com/shader-park-core/dist/shader-park-core.esm.js';
       import {spCode} from './sketch.js';
       let canvas = document.querySelector('.my-canvas');
