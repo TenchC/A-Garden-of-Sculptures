@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>A Garden of Sculptures</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css">
+    <script type="text/javascript" src="dat.gui.min.js"></script>
+  </head>  
+  <body>    
+    <h1>A Garden of Shaders</h1>
+    <h2>Made by Tench.nology using Shader Park</h2>
+    <div class="center">
+
+      <!-- Button for recompiling -->
+    <button id="Compile">Re-Compile</button>
+  </div>
+
+    <script src="visuals.js"></script>
+
+ <!-- Trying to run a script on button press to recompile -->
+<script>
+    document.getElementById("Compile").addEventListener("click", () => {
+      //Tried adding in shader-park-core.js from the import link on line 42
+      //but for some reason that didn't pull properly, I got an error saying sculpt to minimal render was undefined
+      //even though it exists in the shader-park-core.js file thats local
+      import ("./shader-park-core.js");
+      import ("./sketch.js");
+      let canvas = document.querySelector('.my-canvas');
+      // This converts your Shader Park code into a shader and renders it to the my-canvas element
+      sculptToMinimalRenderer(canvas, spCode);
+    });
+  </script>
+    <canvas class="my-canvas"></canvas>
+
+
+    
+<!--     This is what would run, reimporting and resculpting -->
+    <script type="module">
+      import {sculptToMinimalRenderer} from 'https://unpkg.com/shader-park-core/dist/shader-park-core.esm.js';
+      import {spCode} from './sketch.js';
+      let canvas = document.querySelector('.my-canvas');
+      // This converts your Shader Park code into a shader and renders it to the my-canvas element
+      sculptToMinimalRenderer(canvas, spCode);
+    </script>
+     
+  </body>
+</html>

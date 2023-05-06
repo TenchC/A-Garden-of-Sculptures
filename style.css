@@ -1,0 +1,50 @@
+/* CSS files add styling rules to your content */
+
+body {
+    font-family: helvetica, arial, sans-serif;
+    margin: 2em;
+    width: 100vw; 
+    height: 100vh; 
+    margin : 0px; 
+    padding : 0px; 
+    border : 0px; 
+    background-color : white;
+  }
+  
+  h1 {
+    font-style: bold;
+    align-content: center;
+    text-align: center;
+  }
+  
+  h2 {
+    font-style: italic;
+    align-content: center;
+    text-align: center;
+  }
+  
+  
+  canvas {
+    width: 100%;
+    height: 100%;
+    margin : 0px;
+    padding : 0px;
+    border : 0px;
+    background-color : transparent;
+  }
+
+  button{
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    display: flex;
+    width: 200px;
+    height: 40px;
+    font-size: larger;
+  }
+
+  .center{
+    display: flex;
+  justify-content: center;
+    align-self: center;
+  }
