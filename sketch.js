@@ -1,14 +1,24 @@
-var spCode = `
-rotateY(mouse.x * PI / 2 + time*.5);
-rotateX(mouse.y * PI / 2);
-metal(.5);
-shine(.4);
-color(0.0, 0.0,`+ Scale.Scale+`);
-rotateY(getRayDirection().y*4+time)
-boxFrame(vec3(.4), .02);
-expand(.02);
-blend(nsin(time)*.6)
-sphere(.2);
-`
+// 
 
-export{spCode};
+export const spCode =  `
+let scale = 2.0;
+let s = getSpace();
+let n = 0.1*noise(scale * s + time);
+
+metal(0.0);
+shine(0.0);
+color(vec3(0.0));
+
+  rotateY(time*-.3);
+  rotateX(time*.5);
+  torus(0.5, .04);
+  blend(nsin(time)*.6);
+
+  sphere(.1+n);
+
+  rotateY(time*.5);
+  rotateX(time*-.5);
+
+blend(ncos(time)*.6);
+torus(0.7, .04);
+`;

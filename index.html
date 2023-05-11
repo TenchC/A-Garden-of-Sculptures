@@ -7,39 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- import the webpage's stylesheet -->
     <link rel="stylesheet" href="/style.css">
-    <script type="text/javascript" src="dat.gui.min.js"></script>
   </head>  
   <body>    
     <h1>A Garden of Shaders</h1>
     <h2>Made by Tench.nology using Shader Park</h2>
-    <div class="center">
-
-      <!-- Button for recompiling -->
-    <button id="Compile">Re-Compile</button>
-  </div>
-
-    <script src="visuals.js"></script>
-
- <!-- Trying to run a script on button press to recompile -->
-<script>
-    document.getElementById("Compile").addEventListener("click", () => {
-      /*
-      Main issue is here, I've got my compile button which I'm trying to use to recompile the shader code, basiclaly re running the
-      sculpt to minimal renderer function, but import{} cannot be used within a function, so I'm using import(). That doesn't
-      allow me to ping the server for shader park in the same way, so I took all the code from the import{} link on line 47
-      and created an internal js file called shader-park-core.js. However, when I import that, I get a console log error saying 
-      sculpt to minimal renderer isn't defined.
-      */
-      import ("./shader-park-core.js");
-      import ("./sketch.js");
-      let canvas = document.querySelector('.my-canvas');
-      // This converts your Shader Park code into a shader and renders it to the my-canvas element
-      sculptToMinimalRenderer(canvas, spCode);
-    });
-  </script>
-    <canvas class="my-canvas"></canvas>
-
-
     
 <!--     This is what would run, reimporting and resculpting -->
     <script type="module">
@@ -50,6 +21,27 @@
       // This converts your Shader Park code into a shader and renders it to the my-canvas element
       sculptToMinimalRenderer(canvas, spCode);
     </script>
-     
+     <canvas class="my-canvas" id="canvas"></canvas>
+
+     <script type="module">
+      //So I re added this code to make the visualization appear, but right now even though this visual is here there isn't any user input
+      import {sculptToMinimalRenderer} from 'https://unpkg.com/shader-park-core/dist/shader-park-core.esm.js';
+      import {spCode} from './sketch2.js';
+      let canvas2 = document.querySelector('.my-canvas2');
+      // This converts your Shader Park code into a shader and renders it to the my-canvas element
+      sculptToMinimalRenderer(canvas2, spCode);
+    </script>
+     <canvas class="my-canvas2" id="canvas2"></canvas>
+
+     <script type="module">
+      //So I re added this code to make the visualization appear, but right now even though this visual is here there isn't any user input
+      import {sculptToMinimalRenderer} from 'https://unpkg.com/shader-park-core/dist/shader-park-core.esm.js';
+      import {spCode} from './sketch3.js';
+      let canvas3 = document.querySelector('.my-canvas3');
+      // This converts your Shader Park code into a shader and renders it to the my-canvas element
+      sculptToMinimalRenderer(canvas3, spCode);
+    </script>
+     <canvas class="my-canvas3" id="canvas3"></canvas>
+
   </body>
 </html>
